@@ -30,7 +30,7 @@ declare const _default: {
   getLastUpdateTime: () => number;
   getSerialNumber: () => string;
   getIPAddress: () => Promise<string>
-  getMACAddress: () => Promise<string>
+  getMACAddress: (macInterface: String) => Promise<string>
   getPhoneNumber: () => string;
   getAPILevel: () => number;
   getCarrier: () => string;
