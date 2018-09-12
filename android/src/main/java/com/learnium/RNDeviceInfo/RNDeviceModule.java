@@ -135,7 +135,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void getMacAddress(String interface, Promise p) {
+  public void getMacAddress(String macInterface, Promise p) {
     String macAddress = getWifiInfo().getMacAddress();
 
     String permission = "android.permission.INTERNET";
@@ -145,7 +145,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
       try {
         List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
         for (NetworkInterface nif : all) {
-          if (!nif.getName().equalsIgnoreCase(interface)) continue;
+          if (!nif.getName().equalsIgnoreCase(macInterface)) continue;
 
           byte[] macBytes = nif.getHardwareAddress();
           if (macBytes == null) {

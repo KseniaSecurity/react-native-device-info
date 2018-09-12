@@ -22,8 +22,8 @@ module.exports = {
   getIPAddress: function() {
     return RNDeviceInfo.getIpAddress();
   },
-  getMACAddress: function() {
-    return RNDeviceInfo.getMacAddress();
+  getMACAddress: function(macInterface) {
+    return RNDeviceInfo.getMacAddress(macInterface);
   },
   getDeviceId: function() {
     return RNDeviceInfo.deviceId;
