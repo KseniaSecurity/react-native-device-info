@@ -215,7 +215,7 @@ var DeviceInfo = require('react-native-device-info');
 | [getInstallReferrer()](#getinstallreferrer)       | `string`            |  ❌  |   ✅    |   ❌    | 0.19.0 |
 | [getInstanceID()](#getinstanceid)                 | `string`            |  ❌  |   ✅    |   ❌    | ?      |
 | [getLastUpdateTime()](#getlastupdatetime)         | `number`            |  ❌  |   ✅    |   ❌    | 0.12.0 |
-| [getMACAddress()](#getmacaddress)                 | `Promise<string>`   |  ❌  |   ✅    |   ❌    | 0.12.0 |
+| [getMACAddress(interface)](#getmacaddress)                 | `Promise<string>`   |  ✅  |   ✅    |   ❌    | 0.12.0 |
 | [getManufacturer()](#getmanufacturer)             | `string`            |  ✅  |   ✅    |   ✅    | ?      |
 | [getMaxMemory()](#getmaxmemory)                   | `number`            |  ❌  |   ✅    |   ✅    | 0.14.0 |
 | [getModel()](#getmodel)                           | `string`            |  ✅  |   ✅    |   ✅    | ?      |
@@ -531,14 +531,15 @@ const lastUpdateTime = DeviceInfo.getLastUpdateTime();
 
 ---
 
-### getMACAddress()
+### getMACAddress(interface)
 
 Gets the network adapter MAC address.
+Interface can be wlan0 or eth0
 
 **Examples**
 
 ```js
-DeviceInfo.getMACAddress().then(mac => {
+DeviceInfo.getMACAddress(interface).then(mac => {
   // "E5:12:D8:E5:69:97"
 });
 ```
