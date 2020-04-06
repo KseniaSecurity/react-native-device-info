@@ -263,7 +263,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
 
   @SuppressLint("HardwareIds")
   @ReactMethod(isBlockingSynchronousMethod = true)
-  public String getMacAddressSync() {
+  public String getMacAddressSync(String macInterface) {
     WifiInfo wifiInfo = getWifiInfo();
     String macAddress = "";
     if (wifiInfo != null) {
@@ -277,7 +277,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
       try {
         List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
         for (NetworkInterface nif : all) {
-          if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+          if (!nif.getName().equalsIgnoreCase(macInterface)) continue;
 
           byte[] macBytes = nif.getHardwareAddress();
           if (macBytes == null) {
@@ -305,7 +305,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void getMacAddress(Promise p) { p.resolve(getMacAddressSync()); }
+  public void getMacAddress(String macInterface, Promise p) { p.resolve(getMacAddressSync(macInterface)); }
 
   @ReactMethod(isBlockingSynchronousMethod = true)
   public String getCarrierSync() {
