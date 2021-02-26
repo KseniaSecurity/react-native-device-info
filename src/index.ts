@@ -72,18 +72,18 @@ export const [isCameraPresent, isCameraPresentSync] = getSupportedPlatformInfoFu
   defaultValue: false,
 });
 
-export async function getMacAddress() {
+export async function getMacAddress(macInterface: string) {
   if (Platform.OS === 'android') {
-    return RNDeviceInfo.getMacAddress();
+    return RNDeviceInfo.getMacAddress(macInterface);
   } else if (Platform.OS === 'ios') {
     return '02:00:00:00:00:00';
   }
   return 'unknown';
 }
 
-export function getMacAddressSync() {
+export function getMacAddressSync(macInterface: string) {
   if (Platform.OS === 'android') {
-    return RNDeviceInfo.getMacAddressSync();
+    return RNDeviceInfo.getMacAddressSync(macInterface);
   } else if (Platform.OS === 'ios') {
     return '02:00:00:00:00:00';
   }

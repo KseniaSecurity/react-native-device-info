@@ -668,14 +668,20 @@ DeviceInfo.getLastUpdateTime().then((lastUpdateTime) => {
 
 ---
 
-### getMacAddress()
+### getMacAddress(macInterface: string)
 
 Gets the network adapter MAC address.
 
 #### Examples
 
 ```js
-DeviceInfo.getMacAddress().then((mac) => {
+DeviceInfo.getMacAddress('wlan0').then((mac) => {
+  // "E5:12:D8:E5:69:97"
+});
+```
+
+```js
+DeviceInfo.getMacAddress('eth0').then((mac) => {
   // "E5:12:D8:E5:69:97"
 });
 ```
