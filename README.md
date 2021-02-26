@@ -133,7 +133,7 @@ The example app in this repository shows an example usage of every single API, c
 | [getInstallReferrer()](#getinstallreferrer)                       | `Promise<string>`   |  ❌  |   ✅    |   ✅    | ✅  |
 | [getInstanceId()](#getinstanceid)                                 | `Promise<string>`   |  ❌  |   ✅    |   ❌    | ❌  |
 | [getLastUpdateTime()](#getlastupdatetime)                         | `Promise<number>`   |  ❌  |   ✅    |   ❌    | ❌  |
-| [getMacAddress()](#getmacaddress)                                 | `Promise<string>`   |  ✅  |   ✅    |   ❌    | ❌  |
+| [getMacAddress(macInterface)](#getMacAddress(macInterface))       | `Promise<string>`   |  ✅  |   ✅    |   ❌    | ❌  |
 | [getManufacturer()](#getmanufacturer)                             | `Promise<string>`   |  ✅  |   ✅    |   ✅    | ❌  |
 | [getMaxMemory()](#getmaxmemory)                                   | `Promise<number>`   |  ❌  |   ✅    |   ✅    | ✅  |
 | [getModel()](#getmodel)                                           | `string`            |  ✅  |   ✅    |   ✅    | ❌  |
@@ -668,9 +668,9 @@ DeviceInfo.getLastUpdateTime().then((lastUpdateTime) => {
 
 ---
 
-### getMacAddress(macInterface: string)
+### getMacAddress(macInterface)
 
-Gets the network adapter MAC address.
+Gets the network adapter MAC address for wlan or eth
 
 #### Examples
 
